@@ -9,13 +9,12 @@ import AsyncStorage from '@react-native-community/async-storage';
 const Loading = () => {
   const logoAnima = new Animated.Value(0);
   const logoText = new Animated.Value(0);
-
+  const [login, setLogin] = useState(false);
   useEffect(() => {
-    AsyncStorage.getItem('access_token').then(
-      (value) =>
-        console.log(value)
-    );
-    animationSetting();
+    // AsyncStorage.getItem('access_token').then((value) => console.log(value));
+    AsyncStorage.getItem('access_token').then((value) => {
+      value === 1 ? animationSetting() : Actions.listPatients();
+    });
   }, []);
 
   const animationSetting = () => {
@@ -32,7 +31,7 @@ const Loading = () => {
       duration: 2000,
     }).start();
     setTimeout(() => {
-      Actions.beforeLogin();
+      Actions.login();
     }, 2000);
   };
 

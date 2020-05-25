@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from '../../src/styles/global.js';
+import {Container} from '../../styles/global.js';
 
 const GradientContainer = ({children}) => {
   return (

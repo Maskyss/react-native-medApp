@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {Router, Stack, Scene} from 'react-native-router-flux';
 
 import Loading from './screens/LoadingScreen';
-import Login from './screens/LoginScreen';
-import BeforeLogin from './screens/BeforeLogin';
+import Login from './screens/Login';
+import ListPatients from './screens/ListPatients';
 
 export default function App() {
   return (
@@ -17,14 +17,19 @@ export default function App() {
           title="Loading"
         />
         <Scene
-          key="beforeLogin"
-          component={BeforeLogin}
-          initial={true}
+          key="listPatients"
+          component={ListPatients}
           hideNavBar={true}
-          title="BeforeLogin"
+          title="ListPatients"
         />
 
-        <Scene key="login" component={Login} title="Login" hideNavBar={true} />
+       
+        <Scene
+          key="login"
+          component={Login}
+          title="login"
+          hideNavBar={true}
+        />
       </Stack>
     </Router>
   );

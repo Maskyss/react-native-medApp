@@ -9,8 +9,13 @@ const Title = styled.Text`
 `;
 
 const Image = styled.Image`
-  margin-top: -150px;
-  margin-bottom: 50px;
+  height: 30px;
+  width:50px;
+  margin-bottom:10px;
 `;
+const AccountImage =styled.Image`
+  height:90px;
+  width:90px;
+`
 
-export {Title, Image};
+export {Title, Image,AccountImage};

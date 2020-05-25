@@ -13,17 +13,25 @@ const Title = styled.Text`
   font-weight: bold;
   color: #128cd0;
   text-align: right;
+  margin-bottom: 30px;
   text-transform: uppercase;
 `;
 
 const Input = styled.TextInput`
   height: 40px;
-  width:100%;
-  border-color: gray;
+  width: 100%;
+  border-color: #90fff2;
   border-width: 1px;
-  margin: 10px 0;
+  border-radius: 5px;
+
+  height: 50px;
+  margin: 5px 0;
+  padding: 10px;
+`;
+const DisplayFlexRow = styled.View`
+  display: flex;
+  flex-direction:row;
 `;
 
-const Button = styled.Button``;
 
-export {Container,  Input, Button,Title};
+export {Container, Input, DisplayFlexRow, Title};
