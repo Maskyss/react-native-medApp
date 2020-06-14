@@ -1,36 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
+import {Actions} from 'react-native-router-flux';
+import AsyncStorage from '@react-native-community/async-storage';
+
+import ButtonCustom from '../../components/ButtonCustom';
 import Menu from '../../components/Menu';
 
 import {BorderPatient, Name, Date, SubTextDate, PatientImage} from './styles';
-import ButtonCustom from '../../components/ButtonCustom';
-import Patient from '../../assets/patientFace.png';
 import {DisplayFlexRow} from '../../styles/global';
 
+import Patient from '../../assets/patientFace.png';
+
 const ListPatients = () => {
-  const listOfPatients = [
-    {
-      name: 'Андрій',
-      surname: 'Бровко',
-      middleName: 'Миколаївна',
-      birth: '24.05.1975',
-      lastVisit: '19.12.2020',
-    },
-    {
-      name: 'Андрій',
-      surname: 'Бровко',
-      middleName: 'Миколаївна',
-      birth: '24.05.1975',
-      lastVisit: '19.12.2020',
-    },
-    {
-      name: 'Андрій',
-      surname: 'Бровко',
-      middleName: 'Миколаївна',
-      birth: '24.05.1975',
-      lastVisit: '19.12.2020',
-    },
-  ];
+  const [listOfPatients, setListOfPatients] = useState([]);
+  useEffect(() => {
+    AsyncStorage.getItem('data').then((value) => {
+      if (value !== null) {
+        const newValue = JSON.parse(value);
+        if (newValue.users.length !== 0) {
+          const {patients} = newValue.users[0];
+          console.log(patients)
+          setListOfPatients(patients);
+        }
+      }
+    });
+  }, []);
 
   return (
     <View style={{flex: 1, backgroundColor: '#EFEFEF'}}>
@@ -46,7 +40,7 @@ const ListPatients = () => {
                     <Name>{`${item.surname} ${item.name} ${item.middleName}`}</Name>
                     <Date>{item.birth}</Date>
                     <Date>
-                      <SubTextDate>Останній візит: </SubTextDate>{' '}
+                      <SubTextDate>Останній візит: </SubTextDate>
                       {item.lastVisit}
                     </Date>
                   </View>
@@ -57,7 +51,7 @@ const ListPatients = () => {
                   }}>
                   <ButtonCustom
                     title={'Медична картка'}
-                    func={console.log('')}
+                    func={() => Actions.medicalCard()}
                   />
                   <ButtonCustom title={'Новий запис'} func={console.log('')} />
                   <ButtonCustom title={'Декларація'} func={console.log('')} />

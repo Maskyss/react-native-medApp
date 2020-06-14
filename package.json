@@ -10,10 +10,19 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
     "@react-native-community/async-storage": "^1.9.0",
     "@react-navigation/native": "^5.1.4",
     "@react-navigation/stack": "^5.2.9",
+    "apollo-boost": "^0.4.9",
+    "apollo-client": "1.9.3",
+    "apollo-client-preset": "^1.0.8",
+    "apollo-link-http": "^1.5.17",
+    "apollo-link-ws": "^1.0.20",
+    "graphql": "^15.0.0",
+    "graphql-tag": "^2.10.3",
     "react": "16.11.0",
+    "react-apollo": "^3.1.5",
     "react-native": "0.62.1",
     "react-native-bootsplash": "^2.1.0",
     "react-native-gesture-handler": "^1.6.1",
@@ -25,6 +34,7 @@
     "react-native-router-flux": "^4.2.0",
     "react-native-screens": "^2.4.0",
     "react-native-side-drawer": "^1.2.6",
+    "react-router-native": "^5.2.0",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {

@@ -10,13 +10,29 @@ const Loading = () => {
   const logoAnima = new Animated.Value(0);
   const logoText = new Animated.Value(0);
   const [login, setLogin] = useState(false);
-  useEffect(() => {
-    // AsyncStorage.getItem('access_token').then((value) => console.log(value));
-    AsyncStorage.getItem('access_token').then((value) => {
-      value === 1 ? animationSetting() : Actions.listPatients();
-    });
-  }, []);
 
+  useEffect(() => {
+    animationSetting();
+
+    const k = AsyncStorage.getItem('data').then((value) => {
+      if (value !== null) {
+        const newValue = JSON.parse(value);
+
+        if (newValue.users.length !== 0) {
+          const {role} = newValue.users[0];
+          if (role === 'patient') {
+            Actions.medicalCard();
+          } else {
+            Actions.listPatients();
+          }
+        }
+      } else {
+        Actions.login();
+      }
+    });
+
+
+  }, []);
   const animationSetting = () => {
     Animated.parallel([
       Animated.spring(logoAnima, {
@@ -30,9 +46,8 @@ const Loading = () => {
       toValue: 1,
       duration: 2000,
     }).start();
-    setTimeout(() => {
-      Actions.login();
-    }, 2000);
+
+    setTimeout(() => {}, 2000);
   };
 
   return (
