@@ -9,5 +9,15 @@ const imageMan = {
   patientWoman: patient,
   patientMan: patientman,
 };
-
-export  {imageMan};
+const returnImage = (sex, role) => {
+  if (sex === 'man' && role === 'doctor') {
+    return imageMan.doctorman;
+  } else if (sex === 'man' && role === 'patient') {
+    return imageMan.patientMan;
+  } else if (sex === 'woman' && role === 'doctor') {
+    return imageMan.doctorwoman;
+  } else if (sex === 'woman' && role === 'patient') {
+    return imageMan.patientWoman;
+  }
+};
+export {imageMan, returnImage};

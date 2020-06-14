@@ -37,6 +37,8 @@ const GET_USER = gql`
         name
         surname
         middleName
+        sex
+        role
       }
     }
   }

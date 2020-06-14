@@ -7,6 +7,7 @@ import {Router, Stack, Scene} from 'react-native-router-flux';
 import Loading from './screens/LoadingScreen';
 import ListPatients from './screens/ListPatients';
 import MedicalCard from './screens/MedicalCard';
+import Record from './screens/Record';
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -55,6 +56,12 @@ export default function App() {
             key="login"
             component={Login}
             title="login"
+            hideNavBar={true}
+          />
+           <Scene
+            key="record"
+            component={Record}
+            title="record"
             hideNavBar={true}
           />
         </Stack>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
 import Menu from '../../components/Menu';
-import {imageMan} from '../../consts';
+import {imageMan,returnImage} from '../../consts';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import {BorderPatient, Name, Date, SubTextDate, PatientImage} from './styles';
@@ -19,15 +19,7 @@ const MedicalCard = () => {
           const {sex, role} = newValue.users[0];
           setPerson(item);
 
-          if (sex === 'man' && role === 'doctor') {
-            setImage(imageMan.doctorman);
-          } else if (sex === 'man' && role === 'patient') {
-            setImage(imageMan.patientMan);
-          } else if (sex === 'woman' && role === 'doctor') {
-            setImage(imageMan.doctorwoman);
-          } else if (sex === 'woman' && role === 'patient') {
-            setImage(imageMan.patientWoman);
-          }
+         setImage(returnImage(sex, role))
         }
       }
     });

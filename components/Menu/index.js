@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import MenuDrawer from 'react-native-side-drawer';
 import {Image, AccountImage, styles} from './styles';
 import MenuImg from '../../assets/menu.png';
-import {imageMan} from '../../consts';
+import {imageMan, returnImage} from '../../consts';
 import AsyncStorage from '@react-native-community/async-storage';
 import {Actions} from 'react-native-router-flux';
 
@@ -38,15 +38,7 @@ class Menu extends React.Component {
           const {name, middleName, surname, sex, role} = newValue.users[0];
           this.setState({name, middleName, surname});
 
-          if (sex === 'man' && role === 'doctor') {
-            this.setState({image: imageMan.doctorman});
-          } else if (sex === 'man' && role === 'patient') {
-            this.setState({image: imageMan.patientMan});
-          } else if (sex === 'woman' && role === 'doctor') {
-            this.setState({image: imageMan.doctorwoman});
-          } else if (sex === 'woman' && role === 'patient') {
-            this.setState({image: imageMan.patientWoman});
-          }
+          this.setState({image: returnImage(sex, role)});
         }
       }
     });
