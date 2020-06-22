@@ -31,11 +31,18 @@
     "react-native-paper": "^3.7.0",
     "react-native-popup-menu": "^0.15.7",
     "react-native-reanimated": "^1.7.1",
+    "react-native-redash": "^14.1.1",
     "react-native-router-flux": "^4.2.0",
+    "react-native-safe-area-context": "^3.0.5",
     "react-native-screens": "^2.4.0",
+    "react-native-shared-element": "^0.7.0",
     "react-native-side-drawer": "^1.2.6",
+    "react-native-svg": "^12.1.0",
+    "react-navigation-hooks": "^1.1.0",
+    "react-navigation-shared-element": "^2.3.1",
     "react-router-native": "^5.2.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "use-memo-one": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
